@@ -1,0 +1,25 @@
+{
+  "name": "bloggin-website",
+  "version": "1.0.0",
+  "description": "Simple Blogging website using HTML, CSS, Express.js and Firebase",
+  "main": "server.js",
+  "dependencies": {
+    "express-fileupload": "^1.2.1",
+    "express.js": "^1.0.0",
+    "nodemon": "^2.0.15"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Harish-b-13/Blogging-Website.git"
+  },
+  "author": "Harish-B-13",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Harish-b-13/Blogging-Website/issues"
+  },
+  "homepage": "https://github.com/Harish-b-13/Blogging-Website#readme"
+}
