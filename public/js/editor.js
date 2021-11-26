@@ -48,7 +48,7 @@ const addImage = (imagepath, alt) => {
     articleField.value = articleField.value.slice(0, curPos) + textToInsert + articleField.value.slice(curPos); //inserting the image path in the articleField
 }
 
-publishBtn.addEventListener('click', () => uploadDoc(), false);
+publishBtn.addEventListener('click', () => uploadDoc());
 
 async function uploadDoc(){
     // console.log(`${articleField.value.length}`)
@@ -57,13 +57,13 @@ async function uploadDoc(){
         
         let letters = 'abcdefghijklmnopqrstuvwxyz';
         let blogTitle = blogTitleField.value.split(" ").join("-");
-        let id = '';
-        for(let i=0; i<4; i++){
-            id += letters[Math.floor(Math.random() * letters.length)];
+        let blogId = '';
+        for(let i=0; i<4; i++){ // if the number of iterations i.e., 4 is changed Please change the slice() to accordingly.
+            blogId += letters[Math.floor(Math.random() * letters.length)];
         }
 
         // settings up docName
-        let docName = `${blogTitle}-${id}`;
+        let docName = `${blogTitle}-${blogId}`;
         let date = new Date(); // for "published at" info
         let months =["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
         console.log("Before DB call")
@@ -77,6 +77,7 @@ async function uploadDoc(){
         // })
         try{
         const doc = await addDoc(collection(db, "blogs"),{
+            id: blogId,
             title: blogTitleField.value,
             article: articleField.value,
             bannerImage: bannerPath,
@@ -87,6 +88,7 @@ async function uploadDoc(){
         })
         }catch(err){
             console.log(err);
+            alert(err);
         }
     }
 }
