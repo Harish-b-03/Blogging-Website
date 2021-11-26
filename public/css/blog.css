@@ -32,7 +32,9 @@
 } */
 
 .publishedAt{
-    margin: 20px 0 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 15px;
     padding: 0 10px;
     text-transform: capitalize;
     font-style: italic;
@@ -40,8 +42,8 @@
 }
 
 .publishedAt span{
-    font-weight: 700;
-    font-style: normal;
+    font-weight: 550;
+    /* font-style: normal; */
 }
 
 .article *{
@@ -59,8 +61,14 @@
 
 .sub-heading{
     padding: 0 5vw;
-    color: #2d2d2d;
+    border-top: 2px solid rgb(230, 230, 230);
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    color: #6d6d6d;
     font-weight: 500;
-    font-size: 40px;
-    margin-top: 80px;
+    font-size: 30px;
+    margin-top: 200px;
+    padding-top: 50px;
+    padding-left: 200px;
 }

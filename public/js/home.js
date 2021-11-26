@@ -5,10 +5,19 @@ let blogId = decodeURI(location.pathname.split("/").pop());
 
 
 const createBlog = (data) => {
+    let title = data.title;
+    let content = data.article;
+    console.log("Length "+data.title.length);
+    if(title.length>70){
+        title = title.substring(0,70)+'...';
+    }
+    if(content.length>100){
+        content = content.substring(0,100)+'...';
+    }
     blogSection.innerHTML += `<div class="blog-card">
     <img src="${data.bannerImage}" class="blog-image" alt=" ">
-    <h1 class="blog-title">${data.title.substring(0,50) + '...'}</h1>
-    <p class="blog-overview">${data.article.substring(0,100) + '....'}</p>
+    <h1 class="blog-title">${title}</h1>
+    <p class="blog-overview">${content}</p>
     <a href="/${data.title}-${data.id}" class="btn dark">read</a>`
 }
 
@@ -23,8 +32,8 @@ docRef.forEach( (doc) => {
         // console.log("3"+ blogId)
         // console.log(doc.data().id)
         if(doc.data().id != blogId){
-            // console.log("2"+ blogId)
-            // console.log(doc.data().id)
+            console.log("2"+ blogId)
+            console.log(doc.data().id)
             createBlog(doc.data());
         }
     } else{

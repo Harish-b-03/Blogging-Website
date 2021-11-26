@@ -11,13 +11,17 @@ let bannerPath;
 const publishBtn = document.querySelector('.publishbtn');
 const uploadInput = document.querySelector('#image-upload');
 // console.log(publishBtn)
-bannerImage.addEventListener('change', () => {
-    uploadImage(bannerImage,"banner");
-})
+if(bannerImage){ // to rectify the "null" error due to the next line BEFORE uploading. CONTEXT: bannerImage.addEventListener is returning null BEFORE uploading the image and causing error
+    bannerImage.addEventListener('change', () => {
+        uploadImage(bannerImage,"banner");
+    })
+}
 
-uploadInput.addEventListener('change', () => {
-    uploadImage(uploadInput,"image");
-})
+if(uploadInput){ // to rectify the "null" error due to the next line BEFORE uploading. CONTEXT: uploadInput.addEventListener is returning null BEFORE uploading the image and causing error
+    uploadInput.addEventListener('change', () => {
+        uploadImage(uploadInput,"image"); // to get/upload image in the article field
+    })
+}
 
 const uploadImage = (uploadFile, uploadType) => {
     const [file] = uploadFile.files;
@@ -48,7 +52,8 @@ const addImage = (imagepath, alt) => {
     articleField.value = articleField.value.slice(0, curPos) + textToInsert + articleField.value.slice(curPos); //inserting the image path in the articleField
 }
 
-publishBtn.addEventListener('click', () => uploadDoc());
+if(publishBtn)// to rectify the "null" error due to the next line BEFORE uploading. CONTEXT: publishBtn.addEventListener is returning null BEFORE clicking the btn and causing error
+    publishBtn.addEventListener('click', () => uploadDoc());
 
 async function uploadDoc(){
     // console.log(`${articleField.value.length}`)

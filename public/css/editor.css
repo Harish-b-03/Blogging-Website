@@ -1,6 +1,18 @@
+.editor{
+    padding:10px;
+    padding-bottom: 5px;
+    margin-left: 10px;
+    text-decoration: none;
+    text-transform: capitalize;
+    color: rgb(0,0,0,0.6);
+    border-bottom: 2.5px solid black;
+    height: 40px;
+    /* background-color: rgba(0, 0, 0, 0.4); */
+}
 .banner{
     width: 100%;
-    height: 400px;
+    height: 500px;
+    margin-top: 60px;
     position: relative;
     background: #e7e7e7;
     background-size: cover;
@@ -16,13 +28,15 @@
     border-radius: 50%;
     background: rgba(0, 0, 0, 0.1);
     display: flex;
+    padding: 8px;
     justify-content: center;
-    text-align: center;
+    /* text-align: center; */
     cursor: pointer;
 }
 
 .banner-upload-btn img{
     width: 20px;
+    height: 20px;
 }
 
 .blog{
@@ -73,7 +87,7 @@ textarea::-webkit-scrollbar-thumb{
 
 .blog-options{
     position: fixed;
-    bottom: 0;
+    bottom: 20;
     left: 0;
     width: 100%;
     height: 60px;

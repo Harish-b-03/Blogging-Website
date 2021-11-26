@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: 0.5s;
 }
 
 body{
@@ -25,8 +26,17 @@ body{
     justify-content: space-between;
     align-items: center;
     padding: 0 5vw;
-    background: coral;
+    /* background: coral; */
+    border-bottom:2px solid slategray;
+    margin-bottom: 0;
     z-index: 9;
+    background-color: #fff;
+    overflow: hidden;
+}
+.logo{
+    margin-top: 8px;
+    width: 130px;
+    cursor: pointer;
 }
 
 .link-container{
@@ -42,8 +52,20 @@ body{
     color: black;
 }
 
+.home{
+    padding:10px;
+    padding-bottom: 5px;
+    margin-left: 10px;
+    text-decoration: none;
+    text-transform: capitalize;
+    color: rgb(0,0,0,0.6);
+    border-bottom: 2.5px solid black;
+    height: 40px;
+    transition: 0.5s;
+    /* background-color: rgba(0, 0, 0, 0.4); */
+}
 .header{
-    margin-top: 60px;
+    margin-top: 36px;
     width: 100%;
     height: calc(100vh - 60px);
     background: url(../img/header.png);
@@ -97,10 +119,35 @@ body{
     width: 100%;
     height: 250px;
     object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 10px;
+    /* border-radius: 10px; */
+    margin-bottom: 8px;
+}
+.blog-card{
+    /* background-color: rgb(193, 194, 196); */
+    border: 1px solid rgb(0,0,0,0.1);
+    border-radius: 15px;
+    position: relative;
+    /* padding: 10px;
+    padding-top: 15px; */
+    height: 460px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+.blog-card p, .blog-card h1{
+    /* background-color: saddlebrown; */
+    margin-top: 8px;
+    margin-left: 25px;
+    margin-right: 15px;
+}
+.blog-card a{
+    position: absolute;
+    margin-left: 25px;
+    bottom: 20px;
 }
 
+.blog-card img{
+    padding: 0;
+}
 .blog-overview{
     margin: 10px 0 20px;
     line-height: 30px;
