@@ -1,5 +1,17 @@
 
-import { app, db, addDoc, getDocs, collection } from "./firebase.js"
+import { app, db, addDoc, getDocs, collection, auth, onAuthStateChanged } from "./firebase.js"
+let page = decodeURI(location.pathname.split("/").pop());
+// console.log(page);
+if(page != ""){ // To allow User to view the Home Page WITHOUT Logging In
+    auth.onAuthStateChanged((user)=>{
+        if(!user){
+            location.replace("/admin")
+        }
+    })
+}
+
+console.log(auth.currentUser.displayName)
+
 const blogTitleField = document.querySelector('.title');
 const articleField = document.querySelector('.article');
 
@@ -71,8 +83,8 @@ async function uploadDoc(){
         let docName = `${blogTitle}-${blogId}`;
         let date = new Date(); // for "published at" info
         let months =["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-        console.log("Before DB call")
-        console.log(db)
+        // console.log("Before DB call")
+        // console.log(db)
         //Pushing blog to Firestore
         // db.collection("blogs").doc(docName).set({
         //     title: blogTitleField.value,
@@ -86,7 +98,8 @@ async function uploadDoc(){
             title: blogTitleField.value,
             article: articleField.value,
             bannerImage: bannerPath,
-            publishedAt: `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`
+            publishedAt: `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`,
+            author: auth,
         })
         .then(() => {
             location.href = `/${docName}`;

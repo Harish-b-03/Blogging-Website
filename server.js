@@ -37,7 +37,15 @@ app.post('/upload',(req, res) => {
     })
 })
 
-app.get("/:blog", (req, res) => {
+app.get("/admin", (req, res) => {
+    res.sendFile(path.join(initial_path,"dashboard.html"));
+})
+app.get("/logout", (req, res) => {
+    res.sendFile(path.join(initial_path,"logout.html"));
+})
+
+app.get("/:blog", (req, res) => { // link with anything after "/" ,other than the previous links, will be directed to Blog page
+    // In "/':'", ":" used to tell that anything after / ,other than the previous links, will be redirected to below page 
     res.sendFile(path.join(initial_path,"blog.html"));
 })
 

@@ -1,14 +1,3 @@
-.editor{
-    padding:10px;
-    padding-bottom: 5px;
-    margin-left: 10px;
-    text-decoration: none;
-    text-transform: capitalize;
-    color: rgb(0,0,0,0.6);
-    border-bottom: 2.5px solid black;
-    height: 40px;
-    /* background-color: rgba(0, 0, 0, 0.4); */
-}
 .banner{
     width: 100%;
     height: 500px;
@@ -87,7 +76,7 @@ textarea::-webkit-scrollbar-thumb{
 
 .blog-options{
     position: fixed;
-    bottom: 20;
+    bottom: 10px;
     left: 0;
     width: 100%;
     height: 60px;

@@ -3,11 +3,11 @@ const blogSection = document.querySelector(".blogs-section");
 const docRef = await getDocs(collection(db,"blogs"));
 let blogId = decodeURI(location.pathname.split("/").pop());
 
-
+// console.log(location.pathname)
 const createBlog = (data) => {
     let title = data.title;
     let content = data.article;
-    console.log("Length "+data.title.length);
+    // console.log("Length "+data.title.length);
     if(title.length>70){
         title = title.substring(0,70)+'...';
     }
@@ -32,8 +32,8 @@ docRef.forEach( (doc) => {
         // console.log("3"+ blogId)
         // console.log(doc.data().id)
         if(doc.data().id != blogId){
-            console.log("2"+ blogId)
-            console.log(doc.data().id)
+            // console.log("2"+ blogId)
+            // console.log(doc.data().id)
             createBlog(doc.data());
         }
     } else{
