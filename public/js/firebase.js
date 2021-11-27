@@ -21,6 +21,6 @@ const db = getFirestore(app);
 const auth = getAuth(app);
 // const ui = new firebaseui.auth.AuthUI(auth);
 // console.log(auth.signOut())
-console.log(auth.currentUser)
+// console.log(auth.currentUser)
 
-export { app, db, addDoc, collection, getDocs, auth, onAuthStateChanged, signOut}
+export { app, db, addDoc, collection, getDocs, auth, onAuthStateChanged, signOut, getAuth}

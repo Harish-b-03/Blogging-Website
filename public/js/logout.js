@@ -4,5 +4,5 @@ auth.onAuthStateChanged((user)=>{
         console.log("In Logout.js " + user);
         auth.signOut();
     }
-    location.replace("/admin")
+    location.replace("/")
 })

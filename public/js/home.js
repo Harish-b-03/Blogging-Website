@@ -1,10 +1,11 @@
-import {db, getDocs, collection } from "./firebase.js"
+import {db, getDocs, collection, auth, onAuthStateChanged } from "./firebase.js"
 const blogSection = document.querySelector(".blogs-section");
 const docRef = await getDocs(collection(db,"blogs"));
 let blogId = decodeURI(location.pathname.split("/").pop());
 
 // console.log(location.pathname)
-const createBlog = (data) => {
+
+const createBlogCard = (data) => {
     let title = data.title;
     let content = data.article;
     // console.log("Length "+data.title.length);
@@ -25,16 +26,26 @@ const createBlog = (data) => {
 docRef.forEach( (doc) => {
     if(doc.exists){
         blogId = decodeURI(location.pathname.split("/").pop());
-        if(blogId != ""){
-            blogId = blogId.slice(-4); // since Blog ID has 4 character 
+
+        if(blogId == "admin"){ // Setting up Blog Cards FOR DASHBOARD -> blogs created By that particular user
+            let User_Name = auth.currentUser.displayName;
+            let User_UID = auth.currentUser.uid;
+            if(doc.data().author_id == User_UID && doc.data().author_name == User_Name){
+                // console.log(doc.data().author_id + " -- " + doc.data().author_name + " -- " + doc.data().author_email)
+                // console.log(User_UID + " -- " + User_Name + " -- " + auth.currentUser.email)
+                createBlogCard(doc.data());
+            }
         }
-        // console.log(blogId);
-        // console.log("3"+ blogId)
-        // console.log(doc.data().id)
-        if(doc.data().id != blogId){
-            // console.log("2"+ blogId)
+        else{
+            if(blogId != ""){
+                blogId = blogId.slice(-4); // since Blog ID has 4 character 
+            }
+            // console.log(blogId);
             // console.log(doc.data().id)
-            createBlog(doc.data());
+            if(doc.data().id != blogId){
+                // console.log(doc.data().id)
+                createBlogCard(doc.data());
+            }
         }
     } else{
         location.replace("/");

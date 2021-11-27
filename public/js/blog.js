@@ -1,6 +1,8 @@
 import { db, collection, getDocs } from "./firebase.js"
+
 const docRef = await getDocs(collection(db, "blogs"));
 let blogId = decodeURI(location.pathname.split("/").pop());
+
 const addArticle = (ele, data) => {
     data = data.split("\n").filter(item => item.length);
     // console.log(data);
@@ -47,8 +49,9 @@ const setupBlog = (data) => {
 
     banner.style.backgroundImage = `url(${data.bannerImage})`;
     titleTag.innerHTML += blogTitle.innerHTML = data.title;
-    publishedAt.innerHTML += data.publishedAt;   
-    console.log(data);
+    publishedAt.innerHTML += data.publishedAt;
+    publishedAt.innerHTML += `<div>Author  -  ${data.author_name} </div>`
+    // console.log(data);
     addArticle(article, data.article);
 }
 
@@ -56,12 +59,14 @@ docRef.forEach( (doc) => {
     if(doc.exists){
         blogId = decodeURI(location.pathname.split("/").pop());
         blogId = blogId.slice(-4); // since Blog ID has 4 character 
-        console.log(blogId);
+        // console.log(blogId);
         if(doc.data().id == blogId){
-            console.log(blogId)
+            // console.log(blogId)
             setupBlog(doc.data());
         }
     } else{
         location.replace("/");
     }
 });
+
+export { addArticle, setupBlog };
