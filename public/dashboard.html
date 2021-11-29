@@ -15,7 +15,8 @@
 <body>
     <!-- Login -->
     <div class="login">
-        <div id="loginUI"></div>
+        <form class="form">
+        </form>
     </div>
 
     <nav class="navbar">
@@ -40,5 +41,67 @@
     <script type="module" src="js/home.js"></script> 
     <script type="module" src="js/nav.js"></script>
     <script type="module" src="./js/dashboard.js"></script>
+    <script type="text/javascript"> 
+    // import { auth } from "/js/firebase.js";
+    function LogIn(){
+        console.log("Inside LOGIN fnc")
+        let email = document.getElementById('emailInput');
+        console.log(email.value);
+        let password = document.getElementById('passwordInput');
+        if(email.value == ""){
+            alert("Please Enter E-mail")
+            console.log("Email enter")
+        }
+        else if(password.value == ""){
+            alert("Please Enter Password")
+        }
+        const firebaseConfig = {
+            apiKey: "AIzaSyDk-C0c-L12JY7RaWTF1fBHa-2BAGS7F80",
+            authDomain: "blogging-website-791a0.firebaseapp.com",
+            projectId: "blogging-website-791a0",
+            storageBucket: "blogging-website-791a0.appspot.com",
+            messagingSenderId: "666347440620",
+            appId: "1:666347440620:web:de3bdd685d611e6cca58c9"
+        };
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth(app);
+        const promise = auth.signInWithEmailAndPassword(email.value,password.value);
+        promise.catch(e=>alert(e.message));
+    } 
+    function SignUp(){
+        console.log("Inside SignUp fnc")
+        let email = document.getElementById('emailInput');
+        console.log(email.value);
+        let password = document.getElementById('passwordInput');
+        let confirmPassword = document.getElementById('confirmPasswordInput');
+        console.log(email.value)
+        console.log(password.value)
+        console.log(confirmPassword.value)
+        if(email.value == ""){
+            alert("Please Enter E-mail")   
+        }
+        else if(password.value == ""){
+            alert("Please Enter Password")
+        }
+        else if(confirmPassword.value == ""){
+            alert("Please Enter Confi Password")
+        }
+        else if(password.value != confirmPassword){
+            alert("Please Enter Password"+password.value+" "+confirmPassword.value)
+        }
+        const firebaseConfig = {
+            apiKey: "AIzaSyDk-C0c-L12JY7RaWTF1fBHa-2BAGS7F80",
+            authDomain: "blogging-website-791a0.firebaseapp.com",
+            projectId: "blogging-website-791a0",
+            storageBucket: "blogging-website-791a0.appspot.com",
+            messagingSenderId: "666347440620",
+            appId: "1:666347440620:web:de3bdd685d611e6cca58c9"
+        };
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth(app);
+        const promise = auth.createUserWithEmailAndPassword(email.value,password.value);
+        promise.catch(e=>alert(e.message));
+    }
+</script>
 </body>
 </html>

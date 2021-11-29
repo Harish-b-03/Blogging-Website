@@ -2,7 +2,7 @@
     {/*<script type="text/javascript" src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth-compat.js"></script>  */}
 import { initializeApp }  from 'https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js';
 import { getFirestore, collection, getDocs, addDoc } from 'https://www.gstatic.com/firebasejs/9.5.0/firebase-firestore.js';
-import { getAuth, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/9.5.0/firebase-auth.js';
+import { getAuth, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.5.0/firebase-auth.js';
 // import * as firebaseui from "https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.js"
 // import "https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.js"
 const firebaseConfig = {
@@ -22,5 +22,4 @@ const auth = getAuth(app);
 // const ui = new firebaseui.auth.AuthUI(auth);
 // console.log(auth.signOut())
 // console.log(auth.currentUser)
-
-export { app, db, addDoc, collection, getDocs, auth, onAuthStateChanged, signOut, getAuth}
+export { app, db, addDoc, collection, getDocs, auth, onAuthStateChanged, signOut, getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword}

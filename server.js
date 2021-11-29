@@ -53,6 +53,10 @@ app.use((req, res) => {
     res.json("404");
 })
 
-app.listen("3000", () => {
-    console.log('listening....');
-})
+try{
+    app.listen("3000", () => {
+        console.log('listening....');
+    })
+}catch(err){
+    console.log(err);
+}

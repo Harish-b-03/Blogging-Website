@@ -28,13 +28,18 @@ docRef.forEach( (doc) => {
         blogId = decodeURI(location.pathname.split("/").pop());
 
         if(blogId == "admin"){ // Setting up Blog Cards FOR DASHBOARD -> blogs created By that particular user
-            let User_Name = auth.currentUser.displayName;
-            let User_UID = auth.currentUser.uid;
-            if(doc.data().author_id == User_UID && doc.data().author_name == User_Name){
-                // console.log(doc.data().author_id + " -- " + doc.data().author_name + " -- " + doc.data().author_email)
-                // console.log(User_UID + " -- " + User_Name + " -- " + auth.currentUser.email)
-                createBlogCard(doc.data());
+            if(auth.currentUser){
+                let User_Name = auth.currentUser.displayName;
+                let User_UID = auth.currentUser.uid;
+                if(doc.data().author_id == User_UID && doc.data().author_name == User_Name){
+                    // console.log(doc.data().author_id + " -- " + doc.data().author_name + " -- " + doc.data().author_email)
+                    // console.log(User_UID + " -- " + User_Name + " -- " + auth.currentUser.email)
+                    createBlogCard(doc.data());
+                }
+            }else{
+                console.log("Home.js Auth.currentUser NOT Defined")
             }
+            
         }
         else{
             if(blogId != ""){

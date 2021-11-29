@@ -1,5 +1,5 @@
 body{
-    background: #fff;
+    background: rgba(0,0,0,0.5);
 }
 
 .login{
@@ -12,9 +12,88 @@ body{
     justify-content: center;
     align-items: center;
     z-index: 99;
-    background: #fff;
+    background: rgba(255,255,255,0.9);
+    opacity: 100;
 }
-
+.form{
+    width: 350px;
+    height: fit-content;
+    border: 1px solid rgba(0,0,0,0.5);
+    border-radius: 10px;
+    padding: 20px;
+    padding-top: 40px;
+    display: inline;
+    background-color: #fff;
+}
+.Intro{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 5px;
+}
+.Intro-2{
+    text-align: center;
+    display: flex;
+    color: rgba(0,0,0,0.5);
+    font-size: 15px;
+    margin-left:32px;
+    margin-right: 0;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.Intro-2 a{
+    text-decoration: none;
+    margin-left: 10px;
+    color: blue;
+    cursor: pointer;
+}
+.form span{
+    margin-top: 30px;
+    margin: 20px;
+    text-decoration: none;
+    color: #000;
+}
+.SignUp, .LogIn{
+    margin-left: 10px;
+    color: blue;
+    cursor: pointer;
+}
+.LoginBtn{
+    /* width: 250px;
+    height: 50px;
+    background-color: springgreen; */
+    margin-top: 20px;
+    margin-left: 15%;
+    margin-bottom: 40px;
+    width: 70%;
+    height: 40px;
+    padding: 10px;
+    background-color: skyblue;
+    border-radius: 20px;
+    cursor: pointer;
+    text-align: center;
+}
+.LoginBtn:hover{
+    background: rgb(86, 165, 196);
+    color: #fff;
+}
+.form input{
+    margin: 20px;
+    width: 80%;
+    height: 50px;
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+}
+.GoogleLogin{
+    margin-top: 20px;
+    margin-left: 5%;
+    width: 90%;
+    height: 80px;
+    padding-top: 10px;
+    /* background-color: tan; */
+    border-top: 1px solid rgba(0,0,0,0.5);
+}
 .heading{
     color: rgba(0,0,0,0.5);
     font-size: 60px;
