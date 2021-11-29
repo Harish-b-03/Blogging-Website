@@ -19,7 +19,8 @@
         </form>
     </div>
 
-    <nav class="navbar">
+    <nav class="Nav">
+        <div class="navbar">
         <a href="/" >
             <img src="img/logo.png" class="logo" alt='LogoImage'>
         </a>
@@ -27,6 +28,7 @@
             <li class="link-item">    <a href="/" class="link">home</a>   </li>
             <li class="link-item">    <a href="/editor" class="link">editor</a>     </li>
         </ul>
+        </div>
     </nav>
 
 
@@ -100,7 +102,13 @@
         const app = firebase.initializeApp(firebaseConfig);
         const auth = firebase.auth(app);
         const promise = auth.createUserWithEmailAndPassword(email.value,password.value);
-        promise.catch(e=>alert(e.message));
+        if(promise){
+            promise.catch(e=>alert(e.message));
+        }else{
+            console.log("replace")
+            login.style.display = "none";
+            location.replace("/");
+        }
     }
 </script>
 </body>

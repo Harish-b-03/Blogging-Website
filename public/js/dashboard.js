@@ -44,8 +44,11 @@ auth.onAuthStateChanged((user) => {
             <div class="LoginBtn" onclick="LogIn();">
                 Login
             </div>
+            <div class="GoogleLogin">
+                    <div id="loginUI"></div>
+            </div>
         </div>`
-        
+        setupLoginButton();
         let signUp = document.querySelector(".SignUp");
         
         signUp.addEventListener('click',()=>{
