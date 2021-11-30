@@ -5,6 +5,10 @@ let User_Name = "";
 let User_Email = "";
 let User_UID = "";
 
+// const auth = firebase.auth();
+// const db = fireabse.firestore();
+// const addDoc = firebase.auth().addDoc();
+// const collection = db.collection();
 // console.log(page);
 if(page != ""){ // To allow User to view the Home Page WITHOUT Logging In
     auth.onAuthStateChanged((user)=>{
@@ -102,7 +106,8 @@ async function uploadDoc(){
             publishedAt: `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`,
             author_name: User_Name,
             author_email: User_Email,
-            author_id: User_UID
+            author_id: User_UID,
+            comments: [],
         })
         .then(() => {
             location.href = `/${docName}`;

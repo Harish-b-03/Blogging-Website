@@ -24,12 +24,14 @@ let form = document.querySelector(".form");
 auth.onAuthStateChanged((user) => {
     if(user){
         // console.log("Logged In");
-        login.style.display = "none";
+        if(login)
+            login.style.display = "none";   
         // console.log(user);
         // console.log(User_Name + " -- " + User_Email + " -- " + User_UID)
     }else{
         // console.log("NOT Logged In");
-        form.innerHTML = ` 
+        if(form){
+            form.innerHTML = ` 
         <div class="LoginPage">
             <div class="Intro">Login to your account</div>
             <div class="Intro-2">Don't have an account?<div class="SignUp">Sign Up</div></div>
@@ -49,6 +51,8 @@ auth.onAuthStateChanged((user) => {
             </div>
         </div>`
         setupLoginButton();
+        }
+        
         let signUp = document.querySelector(".SignUp");
         
         signUp.addEventListener('click',()=>{

@@ -1,9 +1,24 @@
 import {db, getDocs, collection, auth, onAuthStateChanged } from "./firebase.js"
+
+// const firebaseConfig = {
+//     apiKey: "AIzaSyDk-C0c-L12JY7RaWTF1fBHa-2BAGS7F80",
+//     authDomain: "blogging-website-791a0.firebaseapp.com",
+//     projectId: "blogging-website-791a0",
+//     storageBucket: "blogging-website-791a0.appspot.com",
+//     messagingSenderId: "666347440620",
+//     appId: "1:666347440620:web:de3bdd685d611e6cca58c9"
+// };
+// const app = firebase.initializeApp(firebaseConfig);
+// const auth = firebase.auth();
+// const db = firebase.firestore(app);
+// const getDocs = firebase.auth().getDocs();
+// const collection = db.collection();
+
+// console.log(location.pathname)
+
 const blogSection = document.querySelector(".blogs-section");
 const docRef = await getDocs(collection(db,"blogs"));
 let blogId = decodeURI(location.pathname.split("/").pop());
-
-// console.log(location.pathname)
 
 const createBlogCard = (data) => {
     let title = data.title;
