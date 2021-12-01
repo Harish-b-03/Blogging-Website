@@ -59,12 +59,12 @@
 }
 .likeBtn:hover span{
     margin-top: 5px;
-    margin-left: 15px;
 }
 .likeBtn:hover img{
-    margin:0;
+    margin-left:10px;
     width: 23px;
     height: 23px;
+    margin-right: 10px;
 }
 
 .likeBtn img{

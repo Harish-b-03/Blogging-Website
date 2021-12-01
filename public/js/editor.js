@@ -24,31 +24,6 @@ if(page != ""){ // To allow User to view the Home Page WITHOUT Logging In
         }
     })
 }
-
-
-const blogTitleField = document.querySelector('.title');
-const articleField = document.querySelector('.article');
-
-//banner
-const bannerImage = document.querySelector('#banner-upload');
-const banner = document.querySelector('.banner');
-let bannerPath;
-
-const publishBtn = document.querySelector('.publishbtn');
-const uploadInput = document.querySelector('#image-upload');
-// console.log(publishBtn)
-if(bannerImage){ // to rectify the "null" error due to the next line BEFORE uploading. CONTEXT: bannerImage.addEventListener is returning null BEFORE uploading the image and causing error
-    bannerImage.addEventListener('change', () => {
-        uploadImage(bannerImage,"banner");
-    })
-}
-
-if(uploadInput){ // to rectify the "null" error due to the next line BEFORE uploading. CONTEXT: uploadInput.addEventListener is returning null BEFORE uploading the image and causing error
-    uploadInput.addEventListener('change', () => {
-        uploadImage(uploadInput,"image"); // to get/upload image in the article field
-    })
-}
-
 const uploadImage = (uploadFile, uploadType) => {
     const [file] = uploadFile.files;
     if(file && file.type.includes("image")){
@@ -71,6 +46,33 @@ const uploadImage = (uploadFile, uploadType) => {
         alert("Upload Image Only");
     }
 }
+
+const blogTitleField = document.querySelector('.title');
+const articleField = document.querySelector('.article');
+
+//banner
+const bannerImage = document.querySelector('#banner-upload');
+const banner = document.querySelector('.banner');
+let bannerPath;
+
+const publishBtn = document.querySelector('.publishbtn');
+const uploadInput = document.querySelector('#image-upload');
+// console.log(publishBtn)
+if(bannerImage){ // to rectify the "null" error due to the next line BEFORE uploading. CONTEXT: bannerImage.addEventListener is returning null BEFORE uploading the image and causing error
+    bannerImage.addEventListener('change', () => {
+        uploadImage(bannerImage,"banner");
+    })
+}
+
+// if(uploadInput){ // to rectify the "null" error due to the next line BEFORE uploading. CONTEXT: uploadInput.addEventListener is returning null BEFORE uploading the image and causing error
+    
+    uploadInput.addEventListener('change', () => {
+        console.log("Upload Image")
+        uploadImage(uploadInput,"image"); // to get/upload image in the article field
+    })
+// }
+
+
 
 const addImage = (imagepath, alt) => {
     let curPos = articleField.selectionStart;
